@@ -78,8 +78,12 @@ export default {
 				dest: "public/vendor/bootstrap/css",
 			  },
 			  {
-				src: "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+				src: "node_modules/bootstrap/dist/js/bootstrap.min.js",
 				dest: "public/vendor/bootstrap/js",
+			  },
+			  {
+				src: "node_modules/jquery/dist/jquery.min.js",
+				dest: "public/vendor/jquery",
 			  },
 			],
 		}),
