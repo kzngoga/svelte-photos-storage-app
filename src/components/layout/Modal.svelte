@@ -1,4 +1,8 @@
 <script>
+  // IMPORTS & GLOBAL ASSIGNMENTS
+  import { createEventDispatcher } from 'svelte';
+  const dispatch = createEventDispatcher();
+
   // PROPS
   export let modalTitle = '';
   export let modalBtnTitle = '';
@@ -18,7 +22,10 @@
     open = true;
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    dispatch('proceed');
+    console.log('Proceed');
+  };
 </script>
 
 <button type="button" class="btn btn-success" on:click={onShowPopup}>

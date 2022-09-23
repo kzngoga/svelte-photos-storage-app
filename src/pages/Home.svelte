@@ -1,9 +1,13 @@
 <script>
   import AlbumsTable from '../components/albums/AlbumsTable.svelte';
   import Modal from '../components/layout/Modal.svelte';
+  import AddAlbumForm from '../components/albums/AddAlbumForm.svelte';
 
-  const addAlbum = (e) => {
-    console.log(e);
+  let newAlbumItem = {
+    name: '',
+  };
+  const addAlbum = () => {
+    console.log(newAlbumItem);
   };
 </script>
 
@@ -12,7 +16,9 @@
   <div class="page-wrapper mx-auto mt-4">
     <div class="table-top-header mb-3">
       <input type="text" class="form-control" placeholder="Search album..." />
-      <Modal modalTitle="New Album" modalBtnTitle="Add +">Form Content</Modal>
+      <Modal modalTitle="New Album" modalBtnTitle="Add +" on:proceed={addAlbum}>
+        <AddAlbumForm item={newAlbumItem} />
+      </Modal>
     </div>
     <AlbumsTable />
   </div>
