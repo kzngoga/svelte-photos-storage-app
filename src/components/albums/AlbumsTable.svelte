@@ -2,7 +2,8 @@
   import Fa from 'svelte-fa';
   import { faPhotoVideo } from '@fortawesome/free-solid-svg-icons';
   import { albums, loading } from '../../store/albums/albumStore';
-  import { onMount } from "svelte";
+  import { onMount } from 'svelte';
+  import { Link } from 'svelte-routing';
 
   const { loadAlbums } = albums;
 
@@ -35,9 +36,12 @@
             <td>{album.id}</td>
             <td>{album.title}</td>
             <td
-              ><button class="btn btn-primary py-1"
+              ><Link
+                class="btn btn-primary py-1"
+                to={`album/${album.id}/photos`}
                 ><span class="me-2">Photos</span>
-                <Fa icon={faPhotoVideo} /></button
+                <!-- {`album/${album.id}/photos`} -->
+                <Fa icon={faPhotoVideo} /></Link
               ></td
             >
           </tr>
@@ -48,7 +52,7 @@
 </div>
 
 <style>
-  button {
+  .btn {
     font-size: 14px;
   }
 </style>

@@ -22,8 +22,16 @@
     <input
       type="text"
       class="form-control"
-      placeholder="Enter Album Title"
+      placeholder="Enter Photo Title"
       bind:value={item.title}
+    />
+  </div>
+  <div class="form-group mt-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Enter Image Url"
+      bind:value={item.imageUrl}
     />
   </div>
 </form>

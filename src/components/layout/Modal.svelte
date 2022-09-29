@@ -8,13 +8,16 @@
   export let modalBtnTitle = '';
   export let cancelBtnTitle = 'Cancel';
   export let okBtnTitle = 'Proceed';
+  export let disableProceedBtn = false;
+  export let buttonColor = 'success';
 
   // VARIABLES
   let open = false;
   let showBackdrop = true;
 
   // METHODS
-  const modalClose = () => {
+  export const modalClose = () => {
+    // THIS IS AN EXAMPLE OF EXPORTABLE FUNCTION
     open = false;
   };
 
@@ -24,12 +27,12 @@
 
   const handleSubmit = () => {
     dispatch('proceed');
-    console.log('Proceed');
   };
 </script>
 
-<button type="button" class="btn btn-success" on:click={onShowPopup}>
+<button type="button" class={`btn btn-${buttonColor || 'success'}`} on:click={onShowPopup}>
   {modalBtnTitle}
+  <slot name="button"></slot>
 </button>
 
 {#if open}
@@ -44,7 +47,9 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="sampleModalLabel">{modalTitle}</h5>
+          <h5 class="modal-title" id="sampleModalLabel">
+            {modalTitle}
+          </h5>
           <button
             type="button"
             class="btn-close"
@@ -63,8 +68,11 @@
             data-dismiss="modal"
             on:click={modalClose}>{cancelBtnTitle}</button
           >
-          <button type="button" class="btn btn-primary" on:click={handleSubmit}
-            >{okBtnTitle}</button
+          <button
+            type="button"
+            class="btn btn-primary"
+            disabled={disableProceedBtn}
+            on:click={handleSubmit}>{okBtnTitle}</button
           >
         </div>
       </div>

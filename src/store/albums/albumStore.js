@@ -1,4 +1,4 @@
-import { writable } from 'svelte/store';
+import { writable, get } from 'svelte/store';
 
 export const loading = writable(true);
 
@@ -21,6 +21,13 @@ const createAlbumStore = () => {
       } finally {
         loading.set(false);
       }
+    },
+    filterAlbums: (query) => {
+      const currentAlbums = get(initialAlbums);
+
+      const filteredAlbums = currentAlbums.filter((album) => album.title.toLowerCase().includes(query.toLowerCase()));
+
+      set(filteredAlbums);
     },
     addAlbums: (newAlbum) => {
       update((currentAlbums) => {

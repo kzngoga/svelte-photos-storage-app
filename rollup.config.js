@@ -71,22 +71,22 @@ export default {
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
 		production && terser(),
-		copy({
-			targets: [
-			  {
-				src: "node_modules/bootstrap/dist/css/bootstrap.min.css",
-				dest: "public/vendor/bootstrap/css",
-			  },
-			  {
-				src: "node_modules/bootstrap/dist/js/bootstrap.min.js",
-				dest: "public/vendor/bootstrap/js",
-			  },
-			  {
-				src: "node_modules/jquery/dist/jquery.min.js",
-				dest: "public/vendor/jquery",
-			  },
-			],
-		}),
+		// copy({
+		// 	targets: [
+		// 	  {
+		// 		src: "node_modules/bootstrap/dist/css/bootstrap.min.css",
+		// 		dest: "public/vendor/bootstrap/css",
+		// 	  },
+		// 	  {
+		// 		src: "node_modules/bootstrap/dist/js/bootstrap.min.js",
+		// 		dest: "public/vendor/bootstrap/js",
+		// 	  },
+		// 	  {
+		// 		src: "node_modules/jquery/dist/jquery.min.js",
+		// 		dest: "public/vendor/jquery",
+		// 	  },
+		// 	],
+		// }),
 	],
 	watch: {
 		clearScreen: false
